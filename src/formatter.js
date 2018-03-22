@@ -184,6 +184,12 @@ module.exports = steemAPI => {
         .replace(/[^a-zA-Z0-9]+/g, "")
         .toLowerCase();
       parentPermlink = parentPermlink.replace(/(-\d{8}t\d{9}z)/g, "");
+      
+      var dotCheck = ".";
+      if(parentAuthor.indexOf(dotCheck) != -1){		
+		    var parentAuthor = parentAuthor.replace(".","dot");
+      }
+      
       return "re-" + parentAuthor + "-" + parentPermlink + "-" + timeStr;
     },
 
